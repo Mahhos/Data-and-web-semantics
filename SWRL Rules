@@ -1,0 +1,30 @@
+BlindSpotWarning(?carX) ^ BlindSpotWarning(?carY)
+^ (Distance(?carY, RSU) < Distance(?carX, RSU))
+==> Stop(?carX) ^ giveWay(?carX, ?carY)
+
+
+
+BlindSpotWarning(?carX) ^ BlindSpotWarning(?carY)
+^ GoForward(?carY) ^ TurnRight(?carX)
+==> Stop(?carX) ^ giveWay(?carX, ?carY)
+
+
+
+OverSpeedWarning(?carX) ^ 
+Distance(?carX, RSU) < 100ft
+==> BlindSpotWarning(?carX) ^ SmoothDeceleration(?carX)
+
+
+
+BlindSpotWarning(?carX)
+^ Intersection(?carX)
+==> SmoothDeceleration(?carX) ^ WaitThenGo(?carX) 
+
+
+
+
+
+NoGPSSignal(?carX) ^ NoGPSSignal(?carY)
+^ BlindSpotWarning(?carX) ^ BlindSpotWarning(?carY)
+==> SmoothDeceleration(?carX) ^ SmoothDeceleration(?carY)
+
