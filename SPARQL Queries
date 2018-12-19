@@ -1,0 +1,11 @@
+SELECT ?cars
+from <http://localhost/ontologies/2018/AVontology>
+WHERE {?car car:velocity ?speed .}
+GROUP BY ?speed
+HAVING(AVG(?speed) >= maxSpeed )
+
+
+
+SELECT ?cars
+from <http://localhost/ontologies/2018/AVontology>
+WHERE {?RSU RSU:numberOFCars ?cars .}
